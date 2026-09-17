@@ -4,7 +4,7 @@ A fullstack developer portfolio built to be a real, extensible application rathe
 than a static page: projects are typed data, not hardcoded markup, so the dashboard
 scales without touching a database or a CMS.
 
-**Live site:** _add your deployed URL here once live_
+**Live site:** portfolio-black-three-76.vercel.app
 **Contact:** william.ondrejov@outlook.com · [LinkedIn](https://www.linkedin.com/in/william-ondrejov-5b5616297/) · [GitHub](https://github.com/Wiond/)
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
@@ -19,8 +19,7 @@ scales without touching a database or a CMS.
 The dashboard is driven entirely by `src/data/projects.ts` — a typed array of
 project objects (summary, tech stack, role, metrics, links, status, category).
 Adding a new project is a single object in that array; the grid, category filters,
-and counts all update automatically. No backend, no admin panel, no rebuild logic
-to maintain.
+and counts all update automatically.
 
 ## Features
 
@@ -55,9 +54,3 @@ npm run preview   # preview the production build locally
 
 Static build output (`dist/`) — deploys as-is to Vercel, Netlify, GitHub Pages, or
 Cloudflare Pages. Build command `npm run build`, output directory `dist`.
-
-## Customizing / extending this project
-
-See [`CUSTOMIZING.md`](./CUSTOMIZING.md) for how to add projects, edit bio/contact
-info, update the resume, and a map of the project structure. Some ideas for what to
-build next are in [`PROJECT_IDEAS.md`](./PROJECT_IDEAS.md).
