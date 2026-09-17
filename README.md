@@ -1,14 +1,46 @@
 # William Ondrejov — Portfolio
 
-A fullstack-developer portfolio built with React, TypeScript, and Vite. Designed to
-scale: adding a project is a single object in a data file — no backend, no CMS.
+A fullstack developer portfolio built to be a real, extensible application rather
+than a static page: projects are typed data, not hardcoded markup, so the dashboard
+scales without touching a database or a CMS.
 
-## Stack
+**Live site:** _add your deployed URL here once live_
+**Contact:** william.ondrejov@outlook.com · [LinkedIn](https://www.linkedin.com/in/william-ondrejov-5b5616297/) · [GitHub](https://github.com/Wiond/)
 
-- React 19 + TypeScript
-- Vite
-- Tailwind CSS
-- lucide-react (icons)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
+
+<!-- ![Screenshot](./docs/screenshot.png) -->
+
+## Overview
+
+The dashboard is driven entirely by `src/data/projects.ts` — a typed array of
+project objects (summary, tech stack, role, metrics, links, status, category).
+Adding a new project is a single object in that array; the grid, category filters,
+and counts all update automatically. No backend, no admin panel, no rebuild logic
+to maintain.
+
+## Features
+
+- **Typed, data-driven project dashboard** with category filtering
+- **In-page resume viewer** — embedded PDF preview with download/open-in-new-tab
+  fallbacks for browsers that can't render PDFs inline
+- **Custom design system** — not a template: bespoke color tokens, type scale, and
+  component styling via Tailwind
+- **Fully responsive**, accessible markup (semantic sections, `aria` labels on
+  interactive elements, focus states)
+- **Zero backend** — static build, deploys anywhere that serves static files
+
+## Tech stack
+
+| Layer      | Choice                         |
+| ---------- | ------------------------------- |
+| Framework  | React 19 + TypeScript            |
+| Build tool | Vite                             |
+| Styling    | Tailwind CSS                     |
+| Icons      | lucide-react                     |
 
 ## Getting started
 
@@ -19,52 +51,13 @@ npm run build     # production build -> dist/
 npm run preview   # preview the production build locally
 ```
 
-## Adding a project
-
-Open `src/data/projects.ts` and add an object to the `projects` array. Every field is
-documented in `src/types/project.ts`. The dashboard, category filters, and counts all
-derive from this array automatically — nothing else needs to change.
-
-Two placeholder entries ship in the array so you can see the shape of a second/third
-card. Replace or delete them once you have real projects to show. See
-`PROJECT_IDEAS.md` for suggestions on what to build next.
-
-## Editing your bio / contact info
-
-Open `src/data/profile.ts`.
-
-## Updating your resume
-
-Replace `public/resume.pdf` with your latest CV, keeping the filename `resume.pdf`
-(or update `RESUME_PATH` in `src/components/ResumeButton.tsx` if you rename it). The
-"Resume" button in the header and the "View resume" button in the hero both open an
-in-page modal with the PDF embedded, plus "Open in new tab" and "Download" links as
-fallbacks for browsers that can't preview PDFs inline (mainly some mobile browsers).
-
 ## Deploying
 
-This is a static site — it builds to a `dist/` folder of plain HTML/CSS/JS. It deploys
-as-is to Vercel, Netlify, GitHub Pages, or Cloudflare Pages. For Vercel/Netlify: point
-the project at this repo, build command `npm run build`, output directory `dist`.
+Static build output (`dist/`) — deploys as-is to Vercel, Netlify, GitHub Pages, or
+Cloudflare Pages. Build command `npm run build`, output directory `dist`.
 
-## Project structure
+## Customizing / extending this project
 
-```
-src/
-  data/
-    profile.ts     # your name, bio, contact links
-    projects.ts     # <- add new projects here
-  types/
-    project.ts      # the Project type — documents every field
-  components/
-    Header.tsx
-    Hero.tsx
-    FilterBar.tsx
-    ProjectCard.tsx
-    ProjectDashboard.tsx
-    About.tsx
-    Contact.tsx
-    icons.tsx        # brand icons (GitHub/LinkedIn) not shipped by lucide-react
-  App.tsx
-  main.tsx
-```
+See [`CUSTOMIZING.md`](./CUSTOMIZING.md) for how to add projects, edit bio/contact
+info, update the resume, and a map of the project structure. Some ideas for what to
+build next are in [`PROJECT_IDEAS.md`](./PROJECT_IDEAS.md).
