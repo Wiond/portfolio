@@ -7,15 +7,6 @@ const initials = profile.name
   .join("")
   .toUpperCase();
 
-/**
- * Looks for /public/profile.jpg (or .png/.webp). If it's missing, or the
- * file hasn't been added yet, this renders a styled placeholder with your
- * initials instead of a broken image — so the site always looks finished.
- *
- * To add your photo: drop a square-ish image into the `public/` folder
- * named exactly `profile.jpg` (or update the `src` below to match your
- * filename), ideally at least 400x400px.
- */
 export function ProfilePhoto() {
   const [failed, setFailed] = useState(false);
 
