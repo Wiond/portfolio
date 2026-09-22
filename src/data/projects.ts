@@ -43,22 +43,36 @@ export const projects: Project[] = [
     featured: true,
   },
 
-  // ── PLACEHOLDER — replace with a real fullstack project ──────────
-  // Good candidates: a CRUD app with auth + a real database, or a
-  // real-time feature (websockets/live sync). See PROJECT_IDEAS.md.
   {
-    slug: "placeholder-fullstack-project",
-    title: "Your next project goes here",
+    slug: "job-tracker-api",
+    title: "Job Tracker API",
     summary:
-      "Swap this card for a real fullstack build — something with a database, an API, and auth is ideal.",
+      "A backend API for tracking job applications through their lifecycle — saved, applied, phone screen, interview, offer/rejected/withdrawn — with JWT auth and full integration test coverage.",
     description:
-      "This is placeholder content so you can see how a second dashboard card looks. Replace every field below with details from a real project: what problem it solved, the architecture, and what you specifically built.\n\nGood signal for employers: a proper data model, a real API (REST or GraphQL), authentication, and at least one non-trivial engineering decision you can explain in an interview.",
-    role: "Describe what you built end to end — frontend, backend, schema, deployment.",
-    category: "fullstack",
+      "A REST API built to manage the job-application lifecycle end to end: user registration and login, and CRUD over each user's application entries as they move through stages. Auth uses JWT stored in httpOnly cookies with bcrypt password hashing, and all input is validated with Zod before it touches the database.\n\nEvery application route is scoped to the requesting user — asking for another user's application id returns 404 rather than 403, specifically to avoid leaking whether that id exists at all.\n\nThe schema and migrations are managed with Drizzle ORM against Postgres. Rather than mocking the database, the test suite runs against a real, disposable Postgres instance (via Docker locally, and as a service container in CI), applying migrations and truncating tables between tests for isolation. GitHub Actions runs a type-check and the full suite on every push.",
+    role: "Built solo end to end: schema design and migrations, the auth flow (JWT/cookies/bcrypt), request validation, the REST endpoints for auth and application management, the integration test suite, and the CI pipeline that runs it against a real database.",
+    category: "backend",
     status: "in-progress",
-    techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    links: [],
-    date: "2026-01",
+    techStack: [
+      "TypeScript",
+      "Express 5",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "JWT",
+      "bcrypt",
+      "Zod",
+      "Vitest",
+      "Supertest",
+      "Docker",
+    ],
+    metrics: [
+      { value: "8", label: "REST endpoints (auth + application CRUD)" },
+      { value: "0", label: "Mocked layers — tests hit a real Postgres instance" },
+    ],
+    links: [
+      { label: "Source", url: "https://github.com/Wiond/Job-tracker-application", kind: "repo" },
+    ],
+    date: "2026-09",
   },
 
   // ── PLACEHOLDER — replace with this portfolio site itself, or a
